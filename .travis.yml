@@ -1,4 +1,5 @@
 language: php
+sudo: required
 
 php:
   - 7.0
@@ -7,12 +8,20 @@ php:
 services:
   - elasticsearch
 
+addons:
+  apt:
+    packages:
+    - oracle-java8-set-default
+
 install: travis_retry composer install --no-interaction --prefer-dist
 
 before_script:
   - sleep 10
 
 before_install:
-  - curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.deb && sudo dpkg -i --force-confnew elasticsearch-5.1.1.deb && sudo service elasticsearch restart
+  - curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.deb
+  - sudo dpkg -i --force-confnew elasticsearch-5.1.1.deb 
+  - sudo service elasticsearch start
+  - curl -v http://localhost:9200
 
 script: vendor/bin/phpunit --verbose
