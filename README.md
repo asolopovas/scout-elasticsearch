@@ -1,7 +1,7 @@
 # Scout-Elasticsearch Engine for Elasticsearch 5.*
 
 ### Version
-1.0.0
+3.0.0
 
 ## Contents
 - [Installation](#installation)
@@ -21,7 +21,6 @@ composer require asolopovas/scout-elasticsearch
 'providers' => [
     ...
     Laravel\Scout\ScoutServiceProvider::class,
-    ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
     ...
 ],
 ```

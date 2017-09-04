@@ -1,5 +1,5 @@
 <?php
-namespace ScoutEngines\Elasticsearch;
+namespace Asolopovas\ScoutEngines;
 
 use Elasticsearch\ClientBuilder as ElasticBuilder;
 use Illuminate\Support\ServiceProvider;

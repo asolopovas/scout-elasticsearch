@@ -1,5 +1,5 @@
 <?php
-namespace ScoutEngines\Elasticsearch;
+namespace Asolopovas\ScoutEngines;
 
 use Elasticsearch\Client as Elasticsearch;
 use Illuminate\Database\Eloquent\Collection;

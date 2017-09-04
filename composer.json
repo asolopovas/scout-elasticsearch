@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "ScoutEngines\\Elasticsearch\\": "src/"
+            "Asolopovas\\ScoutEngines\\": "src/"
         }
     },
     "autoload-dev": {
@@ -34,7 +34,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ScoutEngines\\Elasticsearch\\ElasticsearchProvider::class"
+                "Asolopovas\\ScoutEngines\\ElasticsearchProvider"
             ]
         }
     }
