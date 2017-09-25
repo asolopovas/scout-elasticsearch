@@ -1,7 +1,7 @@
 # Scout-Elasticsearch Engine for Elasticsearch 5.*
 
 ### Version
-3.0.0
+3.0.1
 
 ## Contents
 - [Installation](#installation)
@@ -25,9 +25,28 @@ composer require asolopovas/scout-elasticsearch
 ],
 ```
 
-3) Setup Elasticsearch evnironment variablies in your .env file. (Note: Replace these variables according to your configuration)
+3) Append 'elasticsearch' configuration to ./config/scout.php:
+
+```php
+    'elasticsearch' => [
+        'index'  => env('ELASTICSEARCH_INDEX', 'laravel'),
+        'config' => [
+            'ssl'  => env('ELASTICSEARCH_SSL', false),
+            'hosts' => [
+                env('ELASTICSEARCH_HOST', "http://localhost:9200"),
+            ],
+            'ssl'   => [
+                'certificate' => resource_path().'/ssl/ca.crt',
+            ],
+        ],
+    ],
+```
+
+4) Setup Elasticsearch evnironment variablies in your .env file. (Note: Replace these variables according to your configuration, basic auth can be passed as this http://user:pass@localhost. If you set SSL to true don't forget to add you verification certificate to ./resources/ssl)
+
 ```
 ...
+ELASTICSEARCH_SSL=false
 ELASTICSEARCH_HOST=http://localhost
 ELASTICSEARCH_INDEX=laravel
 ...
